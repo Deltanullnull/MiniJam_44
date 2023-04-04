@@ -12,6 +12,7 @@ public class Rocket : MonoBehaviour
     public OnExplodedEvent OnExploded;
 
     public float speed;
+    public float rotSpeed;
 
     public float maxTime;
 
@@ -110,7 +111,7 @@ public class Rocket : MonoBehaviour
             if (Input.GetKey(button))
             {
                 // rotate
-                velocityRight = this.transform.right * rotDirection;
+                velocityRight = this.transform.right * rotDirection * Time.deltaTime * rotSpeed;
             }
 
             body.velocity = this.transform.up * speed + velocityRight;
